@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="view_finder"
+version="1.0.0"
+displayName="View Finder"
+authors="QWERTY"
+displayTest="IGNORE_ALL_VERSION"
+description='''
+뷰 파인더 — 화면 오른쪽 위에 모서리와 꼭짓점을 45도로 깎은 육면체를 띄워 지금 바라보는 방향을 보여 줍니다.
+면·모서리·꼭짓점을 클릭하면 그 방향을 보고, 잡고 돌리면 시점이 함께 돌아갑니다.
+'''
+
+[[dependencies.view_finder]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.view_finder]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.20.2)"
+    ordering="NONE"
+    side="CLIENT"
