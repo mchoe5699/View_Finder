@@ -4,6 +4,9 @@ import com.qwerty.viewfinder.ViewFinderConfig;
 import com.qwerty.viewfinder.ViewFinderMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ChatScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ScreenEvent;
@@ -40,18 +43,45 @@ public final class ClientForgeEvents {
         }
     }
 
+    public static boolean isInventory(Screen s) {
+        return s instanceof InventoryScreen || s instanceof CreativeModeInventoryScreen;
+    }
+
+    // 인벤토리 화면 위에 뷰 파인더를 그린다 (이 화면에서 끌어서 위치 이동).
+    @SubscribeEvent
+    public static void onScreenRender(ScreenEvent.Render.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (!isInventory(event.getScreen()) || mc.player == null || !ViewFinderController.isEnabled()) return;
+        var g = event.getGuiGraphics();
+        var l = ViewFinderController.layout(event.getScreen().width, event.getScreen().height);
+        boolean hot = ViewFinderController.isMoving() || l.contains(event.getMouseX(), event.getMouseY());
+        g.pose().pushPose();
+        g.pose().translate(0, 0, 300);
+        ViewFinderRenderer.draw(g, l, mc.player.getViewYRot(event.getPartialTick()),
+                mc.player.getViewXRot(event.getPartialTick()), null, hot);
+        g.pose().popPose();
+    }
+
+    @SubscribeEvent
+    public static void onScreenClosing(ScreenEvent.Closing event) {
+        if (isInventory(event.getScreen()) || event.getScreen() instanceof ChatScreen) {
+            ViewFinderController.cancelDrag();
+        }
+    }
+
     // 채팅창(T)이 열려 커서가 보일 때도 뷰 파인더를 조작할 수 있게 한다.
     @SubscribeEvent
     public static void onMousePressed(ScreenEvent.MouseButtonPressed.Pre event) {
-        if (event.getScreen() instanceof ChatScreen
-                && ViewFinderController.mousePressed(event.getMouseX(), event.getMouseY(), event.getButton())) {
+        boolean inv = isInventory(event.getScreen());
+        if ((inv || event.getScreen() instanceof ChatScreen)
+                && ViewFinderController.mousePressed(event.getMouseX(), event.getMouseY(), event.getButton(), inv)) {
             event.setCanceled(true);
         }
     }
 
     @SubscribeEvent
     public static void onMouseDragged(ScreenEvent.MouseDragged.Pre event) {
-        if (event.getScreen() instanceof ChatScreen
+        if ((event.getScreen() instanceof ChatScreen || isInventory(event.getScreen()))
                 && ViewFinderController.mouseDragged(event.getMouseX(), event.getMouseY(), event.getMouseButton())) {
             event.setCanceled(true);
         }
@@ -59,7 +89,7 @@ public final class ClientForgeEvents {
 
     @SubscribeEvent
     public static void onMouseReleased(ScreenEvent.MouseButtonReleased.Pre event) {
-        if (event.getScreen() instanceof ChatScreen
+        if ((event.getScreen() instanceof ChatScreen || isInventory(event.getScreen()))
                 && ViewFinderController.mouseReleased(event.getMouseX(), event.getMouseY(), event.getButton())) {
             event.setCanceled(true);
         }
@@ -67,7 +97,7 @@ public final class ClientForgeEvents {
 
     @SubscribeEvent
     public static void onMouseScrolled(ScreenEvent.MouseScrolled.Pre event) {
-        if (event.getScreen() instanceof ChatScreen
+        if ((event.getScreen() instanceof ChatScreen || isInventory(event.getScreen()))
                 && ViewFinderController.mouseScrolled(event.getMouseX(), event.getMouseY(), event.getScrollDelta())) {
             event.setCanceled(true);
         }

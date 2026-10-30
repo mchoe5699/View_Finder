@@ -4,7 +4,7 @@
   "key.view_finder.toggle": "뷰 파인더 표시 켜기/끄기",
   "view_finder.screen": "뷰 파인더",
   "view_finder.hint.1": "클릭: 그 방향 보기 · 드래그: 시점 돌리기",
-  "view_finder.hint.2": "우클릭 드래그 / Shift+드래그: 위치 이동 · 휠: 크기 · 가운데 클릭: 위치 초기화",
+  "view_finder.hint.2": "인벤토리(E)를 열고 끌면 위치 이동 · 휠: 크기 · 가운데 클릭: 위치 초기화",
   "view_finder.toggled.on": "뷰 파인더 켜짐",
   "view_finder.toggled.off": "뷰 파인더 꺼짐",
   "view_finder.dir.north": "북",

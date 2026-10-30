@@ -2,7 +2,6 @@ package com.qwerty.viewfinder.client;
 
 import com.qwerty.viewfinder.ViewFinderConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
 
@@ -18,7 +17,7 @@ public final class ViewFinderController {
     private static Drag drag = Drag.NONE;
     private static int button;
     private static double pressX, pressY, lastX, lastY, grabDX, grabDY;
-    private static boolean shiftDrag;
+    private static boolean moveOnly;
     private static ViewFinderGeometry.Face pressedFace;
     private static Integer moveX, moveY;
 
@@ -35,6 +34,10 @@ public final class ViewFinderController {
 
     public static boolean isDragging() {
         return drag != Drag.NONE;
+    }
+
+    public static boolean isMoving() {
+        return drag == Drag.MOVE;
     }
 
     private static int screenW() {
@@ -79,7 +82,13 @@ public final class ViewFinderController {
 
     // ---------------------------------------------------------------- 마우스
 
+    /** 뷰 파인더 조작 화면(Alt)·채팅창: 클릭 = 그 방향 보기, 드래그 = 시점 회전. */
     public static boolean mousePressed(double mx, double my, int btn) {
+        return mousePressed(mx, my, btn, false);
+    }
+
+    /** moveOnly = true: 인벤토리 화면에서 끌어서 위치만 옮긴다. */
+    public static boolean mousePressed(double mx, double my, int btn, boolean moveOnly) {
         LocalPlayer player = Minecraft.getInstance().player;
         if (player == null || !isEnabled()) return false;
         ViewFinderRenderer.Layout l = layout();
@@ -88,12 +97,12 @@ public final class ViewFinderController {
             resetPosition();
             return true;
         }
-        if (btn != 0 && btn != 1) return false;
+        if (moveOnly ? (btn != 0 && btn != 1) : btn != 0) return false;
+        ViewFinderController.moveOnly = moveOnly;
         drag = Drag.PENDING;
         button = btn;
         pressX = lastX = mx;
         pressY = lastY = my;
-        shiftDrag = Screen.hasShiftDown();
         grabDX = mx - l.x();
         grabDY = my - l.y();
         pressedFace = hitAt(l, player.getYRot(), player.getXRot(), mx, my);
@@ -105,7 +114,7 @@ public final class ViewFinderController {
         if (drag == Drag.PENDING) {
             double dx = mx - pressX, dy = my - pressY;
             if (dx * dx + dy * dy < DRAG_THRESHOLD * DRAG_THRESHOLD) return true;
-            drag = (button == 1 || shiftDrag) ? Drag.MOVE : Drag.ROTATE;
+            drag = moveOnly ? Drag.MOVE : Drag.ROTATE;
         }
         if (drag == Drag.ROTATE) {
             LocalPlayer player = Minecraft.getInstance().player;
@@ -131,7 +140,7 @@ public final class ViewFinderController {
 
     public static boolean mouseReleased(double mx, double my, int btn) {
         if (drag == Drag.NONE) return false;
-        if (drag == Drag.PENDING && button == 0 && pressedFace != null) {
+        if (drag == Drag.PENDING && !moveOnly && button == 0 && pressedFace != null) {
             lookAt(pressedFace);
         } else if (drag == Drag.MOVE) {
             savePosition();

@@ -12,6 +12,8 @@ public final class ViewFinderOverlay {
     public static void render(ForgeGui gui, GuiGraphics g, float partialTick, int screenWidth, int screenHeight) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || !ViewFinderController.isEnabled()) return;
+        // 인벤토리 화면에서는 어두운 배경 위에 따로 그린다 (ClientForgeEvents).
+        if (ClientForgeEvents.isInventory(mc.screen)) return;
         boolean interacting = mc.screen instanceof ViewFinderScreen;
         if (mc.options.hideGui && !interacting) return;
 
