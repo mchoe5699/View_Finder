@@ -55,10 +55,13 @@ public final class ClientForgeEvents {
         var g = event.getGuiGraphics();
         var l = ViewFinderController.layout(event.getScreen().width, event.getScreen().height);
         boolean hot = ViewFinderController.isMoving() || l.contains(event.getMouseX(), event.getMouseY());
+        float yaw = mc.player.getViewYRot(event.getPartialTick());
+        float pitch = mc.player.getViewXRot(event.getPartialTick());
+        ViewFinderGeometry.Face hover = ViewFinderController.isMoving() ? null
+                : ViewFinderController.hitAt(l, yaw, pitch, event.getMouseX(), event.getMouseY());
         g.pose().pushPose();
         g.pose().translate(0, 0, 300);
-        ViewFinderRenderer.draw(g, l, mc.player.getViewYRot(event.getPartialTick()),
-                mc.player.getViewXRot(event.getPartialTick()), null, hot);
+        ViewFinderRenderer.draw(g, l, yaw, pitch, hover, hot);
         g.pose().popPose();
     }
 

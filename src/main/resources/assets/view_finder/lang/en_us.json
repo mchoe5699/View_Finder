@@ -4,7 +4,7 @@
   "key.view_finder.toggle": "Show/Hide View Finder",
   "view_finder.screen": "View Finder",
   "view_finder.hint.1": "Click: look that way · Drag: rotate view",
-  "view_finder.hint.2": "Open the inventory (E) and drag to move · Wheel: size · Middle-click: reset position",
+  "view_finder.hint.2": "In the inventory (E): click to look · drag to move · Wheel: size · Middle-click: reset position",
   "view_finder.toggled.on": "View Finder on",
   "view_finder.toggled.off": "View Finder off",
   "view_finder.dir.north": "N",

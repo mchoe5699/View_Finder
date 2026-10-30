@@ -87,7 +87,7 @@ public final class ViewFinderController {
         return mousePressed(mx, my, btn, false);
     }
 
-    /** moveOnly = true: 인벤토리 화면에서 끌어서 위치만 옮긴다. */
+    /** moveOnly = true (인벤토리): 클릭 = 그 방향 보기, 끌기 = 위치 이동. */
     public static boolean mousePressed(double mx, double my, int btn, boolean moveOnly) {
         LocalPlayer player = Minecraft.getInstance().player;
         if (player == null || !isEnabled()) return false;
@@ -140,7 +140,7 @@ public final class ViewFinderController {
 
     public static boolean mouseReleased(double mx, double my, int btn) {
         if (drag == Drag.NONE) return false;
-        if (drag == Drag.PENDING && !moveOnly && button == 0 && pressedFace != null) {
+        if (drag == Drag.PENDING && button == 0 && pressedFace != null) {
             lookAt(pressedFace);
         } else if (drag == Drag.MOVE) {
             savePosition();
