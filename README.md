@@ -26,3 +26,22 @@
 ## 빌드
 GitHub Actions가 push할 때마다 jar를 빌드합니다 (Actions → 최신 실행 → Artifacts → `view_finder-jar`).
 로컬 빌드: Gradle 8.8 + JDK 17로 `gradle build` → `build/libs/`.
+
+---
+
+# 뷰 파인더 — Bedrock Edition 애드온 (`bedrock/`)
+
+Bedrock은 화면에 3D 모델을 직접 그리거나 HUD를 마우스로 누를 수 없어서, 다음처럼 바꿔 만들었습니다.
+
+| Java 모드 | BE 애드온 |
+|---|---|
+| 육면체를 실시간 3D로 그림 | 10° 간격으로 미리 그린 그림 684장을 시점에 맞춰 바꿔 표시 |
+| 면·모서리·꼭짓점 클릭 | **뷰 파인더 아이템 사용** → 26방향 목록(그림 아이콘)에서 고르면 그 방향을 정면으로 봄 |
+| 잡고 돌리기 | 같은 목록의 회전 버튼 (왼쪽/오른쪽/위/아래 45°, 뒤로 돌기, 수평) |
+| 인벤토리에서 끌어 이동 | **웅크리고 아이템 사용** → 설정에서 위치 5곳·크기 3단계 선택 |
+
+- 월드에 들어가면 자동으로 오른쪽 위에 표시되고, 처음 들어올 때 뷰 파인더 아이템을 한 개 줍니다 (제작: 나침반 + 유리판).
+- 표시 방식: 행동팩 스크립트가 `vf:`로 시작하는 제목(title)을 보내고, 리소스팩 `ui/hud_screen.json`이 이를 가로채 화면 구석에 그림으로 띄웁니다. 다른 애드온·명령어의 제목은 그대로 보이지만, 뷰 파인더가 켜져 있으면 최대 5초 뒤 뷰 파인더 제목으로 덮입니다.
+- 요구 버전: Bedrock 1.21.90 이상 (`@minecraft/server` 2.0.0, `@minecraft/server-ui` 2.0.0).
+- 그림 다시 만들기: `python3 bedrock/tools/gen_textures.py bedrock/resource_pack` / `python3 bedrock/tools/gen_ui.py bedrock/resource_pack`
+- 빌드: push할 때마다 `jar` 브랜치에 `view_finder_BE.mcaddon`도 함께 올라갑니다.

@@ -29,6 +29,7 @@ jobs:
       - name: Publish jar to the 'jar' branch
         run: |
           mkdir -p /tmp/out && cp build/libs/*.jar /tmp/out/
+          (cd bedrock && zip -qr /tmp/out/view_finder_BE.mcaddon behavior_pack resource_pack)
           cd /tmp/out
           git init -q -b jar
           git config user.name "github-actions[bot]"

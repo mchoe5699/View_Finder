@@ -1,0 +1,1402 @@
+{
+  "namespace": "hud",
+  "hud_title_text": {
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((#hud_title_text_string - 'vf:') = #hud_title_text_string)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": {
+          "view_finder_root@hud.view_finder_root": {}
+        }
+      }
+    ]
+  },
+  "view_finder_root": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 20,
+    "controls": [
+      {
+        "view_finder_A1@hud.view_finder_A1": {}
+      },
+      {
+        "view_finder_A2@hud.view_finder_A2": {}
+      },
+      {
+        "view_finder_A3@hud.view_finder_A3": {}
+      },
+      {
+        "view_finder_B1@hud.view_finder_B1": {}
+      },
+      {
+        "view_finder_B2@hud.view_finder_B2": {}
+      },
+      {
+        "view_finder_B3@hud.view_finder_B3": {}
+      },
+      {
+        "view_finder_C1@hud.view_finder_C1": {}
+      },
+      {
+        "view_finder_C2@hud.view_finder_C2": {}
+      },
+      {
+        "view_finder_C3@hud.view_finder_C3": {}
+      },
+      {
+        "view_finder_D1@hud.view_finder_D1": {}
+      },
+      {
+        "view_finder_D2@hud.view_finder_D2": {}
+      },
+      {
+        "view_finder_D3@hud.view_finder_D3": {}
+      },
+      {
+        "view_finder_E1@hud.view_finder_E1": {}
+      },
+      {
+        "view_finder_E2@hud.view_finder_E2": {}
+      },
+      {
+        "view_finder_E3@hud.view_finder_E3": {}
+      }
+    ]
+  },
+  "view_finder_A1": {
+    "type": "panel",
+    "size": [
+      48,
+      59
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:A1|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            48,
+            48
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:A1|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 0.8,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_A2": {
+    "type": "panel",
+    "size": [
+      64,
+      75
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:A2|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            64,
+            64
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:A2|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_A3": {
+    "type": "panel",
+    "size": [
+      96,
+      107
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:A3|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            96,
+            96
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:A3|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_B1": {
+    "type": "panel",
+    "size": [
+      48,
+      59
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      30
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:B1|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            48,
+            48
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:B1|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 0.8,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_B2": {
+    "type": "panel",
+    "size": [
+      64,
+      75
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      30
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:B2|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            64,
+            64
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:B2|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_B3": {
+    "type": "panel",
+    "size": [
+      96,
+      107
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      30
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:B3|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            96,
+            96
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:B3|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_C1": {
+    "type": "panel",
+    "size": [
+      48,
+      59
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [
+      4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:C1|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            48,
+            48
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:C1|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 0.8,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_C2": {
+    "type": "panel",
+    "size": [
+      64,
+      75
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [
+      4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:C2|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            64,
+            64
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:C2|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_C3": {
+    "type": "panel",
+    "size": [
+      96,
+      107
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [
+      4,
+      4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:C3|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            96,
+            96
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:C3|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_D1": {
+    "type": "panel",
+    "size": [
+      48,
+      59
+    ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [
+      -4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:D1|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            48,
+            48
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:D1|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 0.8,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_D2": {
+    "type": "panel",
+    "size": [
+      64,
+      75
+    ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [
+      -4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:D2|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            64,
+            64
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:D2|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_D3": {
+    "type": "panel",
+    "size": [
+      96,
+      107
+    ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "offset": [
+      -4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:D3|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            96,
+            96
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:D3|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_E1": {
+    "type": "panel",
+    "size": [
+      48,
+      59
+    ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [
+      4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:E1|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            48,
+            48
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:E1|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 0.8,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_E2": {
+    "type": "panel",
+    "size": [
+      64,
+      75
+    ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [
+      4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:E2|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            64,
+            64
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:E2|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "view_finder_E3": {
+    "type": "panel",
+    "size": [
+      96,
+      107
+    ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [
+      4,
+      -4
+    ],
+    "layer": 20,
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#hud_title_text_string - 'vf:E3|') = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "cube": {
+          "type": "image",
+          "size": [
+            96,
+            96
+          ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "texture": "#texture",
+          "alpha": 0.95,
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('textures/ui/view_finder/' + (#hud_title_text_string - 'vf:E3|'))",
+              "target_property_name": "#texture"
+            }
+          ]
+        }
+      },
+      {
+        "heading": {
+          "type": "label",
+          "size": [
+            "default",
+            10
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "localize": false,
+          "font_scale_factor": 1.0,
+          "text_alignment": "center",
+          "bindings": [
+            {
+              "binding_name": "#hud_subtitle_text_string",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_subtitle_text_string - 'vfs:')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#hud_subtitle_text_string - 'vfs:') = #hud_subtitle_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

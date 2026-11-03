@@ -1,0 +1,19 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "뷰 파인더",
+    "description": "모서리·꼭짓점을 깎은 육면체로 지금 보는 방향을 보여 줍니다",
+    "uuid": "48b89cdf-a767-4834-a925-e2f60bac34f5",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 90]
+  },
+  "modules": [
+    { "type": "data", "uuid": "845c8a42-9003-4ef1-b966-3d6989a76d14", "version": [1, 0, 0] },
+    { "type": "script", "language": "javascript", "uuid": "002d17f0-b6b3-44db-a770-62e4022d66b8", "version": [1, 0, 0], "entry": "scripts/main.js" }
+  ],
+  "dependencies": [
+    { "uuid": "802ee8ec-bdf9-46a8-a461-b2c181089254", "version": [1, 0, 0] },
+    { "module_name": "@minecraft/server", "version": "2.0.0" },
+    { "module_name": "@minecraft/server-ui", "version": "2.0.0" }
+  ]
+}

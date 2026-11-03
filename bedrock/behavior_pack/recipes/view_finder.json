@@ -1,0 +1,13 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": { "identifier": "view_finder:view_finder" },
+    "tags": ["crafting_table"],
+    "unlock": [{ "item": "minecraft:compass" }],
+    "ingredients": [
+      { "item": "minecraft:compass" },
+      { "item": "minecraft:glass_pane" }
+    ],
+    "result": { "item": "view_finder:view_finder" }
+  }
+}
